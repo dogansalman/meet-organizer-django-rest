@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
-from .serializer import MeetSerializer
-from .models import meet
+from .serializer import MeetSerializer, AttendanceSerializer
+from .models import meet, attendances
 
 class MeetCreateApi(generics.CreateAPIView):
     queryset = meet.objects.all()
@@ -18,3 +18,7 @@ class MeetUpdateApi(generics.RetrieveUpdateAPIView):
 class MeetDeleteApi(generics.DestroyAPIView):
     queryset = meet.objects.all()
     serializer_class = MeetSerializer    
+
+class AttendanceDeleteApi(generics.DestroyAPIView):
+    queryset = attendances.objects.all()
+    serializer_class = AttendanceSerializer    
